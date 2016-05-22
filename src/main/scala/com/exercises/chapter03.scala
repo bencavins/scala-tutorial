@@ -1,5 +1,8 @@
 import scala.util.Random
 import scala.collection.mutable.ArrayBuffer
+import java.awt.datatransfer._
+import scala.collection.JavaConversions.asScalaBuffer
+import scala.collection.mutable.Buffer
 
 object chapter03 {
     
@@ -60,10 +63,37 @@ object chapter03 {
 
     val a = Array(1,5,2,7,4)
     val b = ArrayBuffer(3,65,8,4,2)
-    assert(a.sortWith(_> _) == Array(1,2,4,5,7))
+    assert(a.sortWith(_ > _) == Array(1,2,4,5,7))
     assert(b.sortWith(_ > _) == ArrayBuffer(2,3,4,8,65))
 
     // 7
 
     assert(Array(1,1,2,3).distinct == Array(1,2,3))
+
+    // 8
+
+    def oneNeg(a: ArrayBuffer[Int]): ArrayBuffer[Int] = {
+        val indexes = {
+            for (i <- 0 until a.length if a(i) < 0) yield i
+        }.reverse.dropRight(1)
+        for (index <- indexes) a.remove(index)
+        a
+    }
+
+    assert(oneNeg(ArrayBuffer(1, -2, 3, 4, -5, -6)) == ArrayBuffer(1, -2, 3, 4))
+    assert(oneNeg(ArrayBuffer(1, 2, 3)) == ArrayBuffer(1, 2, 3))
+
+    // 9
+
+    java.util.TimeZone.getAvailableIDs.filter(
+            _.startsWith("America/")
+        ).map(
+            _.drop("America/".length)
+        ).sorted
+
+    // 10
+
+    val flavors = SystemFlavorMap.getDefaultFlavorMap.asInstanceOf[SystemFlavorMap]
+    val list = flavors.getNativesForFlavor(DataFlavor.imageFlavor)
+    val scalaBuffer: Buffer[String] = new ProcessBuilder(list).command
 }
