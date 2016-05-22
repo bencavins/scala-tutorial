@@ -1,4 +1,5 @@
 import scala.util.Random
+import scala.collection.mutable.ArrayBuffer
 
 object chapter03 {
     
@@ -54,4 +55,15 @@ object chapter03 {
     }
 
     assert(average(Array(1.0, 5.5, 2.0, -1.0)) == 1.875)
+
+    // 6
+
+    val a = Array(1,5,2,7,4)
+    val b = ArrayBuffer(3,65,8,4,2)
+    assert(a.sortWith(_> _) == Array(1,2,4,5,7))
+    assert(b.sortWith(_ > _) == ArrayBuffer(2,3,4,8,65))
+
+    // 7
+
+    assert(Array(1,1,2,3).distinct == Array(1,2,3))
 }
