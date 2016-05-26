@@ -89,13 +89,13 @@ object chapter04 {
 
     // 7
 
-/*    def printProperties() {
+    def printProperties() {
         val properties: scala.collection.Map[String, String] = System.getProperties()
         val largestKey = properties.keysIterator.reduceLeft((x, y) => if (x.length > y.length) x else y)
         for ((property, value) <- properties) {
             val padding = " " * (largestKey.length - property.length + 1)
             println(property + padding + "| " + value)
         }
-    }*/
+    }
 
 }
