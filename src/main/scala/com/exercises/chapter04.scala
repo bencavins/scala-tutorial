@@ -98,4 +98,31 @@ object chapter04 {
         }
     }
 
+    // 8
+
+    def minmax(values: Array[Int]) = {
+        (values.reduceLeft((x, y) => if (x < y) x else y),
+            values.reduceLeft((x, y) => if (x > y) x else y))
+    }
+
+    assert(minmax(Array(3,1,5,8,9,4)) == (1,9))
+
+    // 9
+
+    def lteqgt(values: Array[Int], v: Int) = {
+        (values.count(x => x < v),
+            values.count(x => x == v),
+            values.count(x => x > v))
+    }
+
+    assert(lteqgt(Array(1,2,3,4,5,6,7,8,9,10), 6) == (5,1,4))
+
+    // 10
+
+    /*
+    scala> "Hello".zip("World")
+    res0: scala.collection.immutable.IndexedSeq[(Char, Char)] = Vector((H,W), (e,o), (l,r), (l,l), (o,d))
+
+    */
+
 }
