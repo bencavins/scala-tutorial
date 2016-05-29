@@ -1,7 +1,21 @@
 
 object chapter05 {
 
-    def exercise01 {}
+    def exercise01 {
+        class Counter {
+            private var value = 0
+            def increment() { 
+                if (value != Int.MaxValue) value += 1 
+            }
+            def current = value
+        }
+
+        val counter = new Counter
+        for (i <- 0 to Int.MaxValue - 1) counter.increment() // seqs cannot contain more that Int.MaxValue elements
+        assert(counter.current == Int.MaxValue)
+        counter.increment
+        assert(counter.current == Int.MaxValue)
+    }
 
     def exercise02 {}
 
