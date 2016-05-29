@@ -17,7 +17,23 @@ object chapter05 {
         assert(counter.current == Int.MaxValue)
     }
 
-    def exercise02 {}
+    def exercise02 {
+        class BankAccount {
+            private var _balance = 0
+
+            def balance = _balance
+
+            def deposit(amount: Int) { _balance += amount }
+            def withdraw(amount: Int) { _balance -= amount }
+        }
+
+        val b = new BankAccount
+        assert(b.balance == 0)
+        b.deposit(100)
+        assert(b.balance == 100)
+        b.withdraw(150)
+        assert(b.balance == -50)
+    }
 
     def exercise03 {}
 
