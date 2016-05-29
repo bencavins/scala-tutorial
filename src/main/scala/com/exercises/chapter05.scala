@@ -35,7 +35,22 @@ object chapter05 {
         assert(b.balance == -50)
     }
 
-    def exercise03 {}
+    def exercise03 {
+        class Time(private val hours: Int = 0, private val minutes: Int = 0) {
+            def before(other: Time) = {
+                hours < other.hours || (hours == other.hours && minutes < other.minutes)
+            }
+        }
+
+        val t0 = new Time()
+        val t1 = new Time(5)
+        val t2 = new Time(5, 30)
+
+        assert( t0.before(t1))
+        assert(!t1.before(t0))
+        assert( t1.before(t2))
+        assert(!t2.before(t1))
+    }
 
     def exercise04 {}
 
