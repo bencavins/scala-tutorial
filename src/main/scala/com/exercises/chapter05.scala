@@ -53,7 +53,7 @@ object chapter05 {
     }
 
     def exercise04 {
-        class Time(private val hours: Int = 0, private val minutes: Int = 0) {
+        class Time(hours: Int = 0, minutes: Int = 0) {
             private val timestamp = (hours * 60) + minutes - 1
 
             def before(other: Time) = {
