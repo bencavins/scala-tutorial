@@ -107,7 +107,15 @@ object chapter05 {
         assert(new Person("Jesse", -1).age == 0)
     }
 
-    def exercise07 {}
+    def exercise07 {
+        class Person(name: String) {
+            val firstName = name.split(" ").head
+            val lastName = name.split(" ").last
+        }
+
+        assert(new Person("Ben Cavins").firstName == "Ben")
+        assert(new Person("Ben Cavins").lastName == "Cavins")
+    }
 
     def exercise08 {}
 
