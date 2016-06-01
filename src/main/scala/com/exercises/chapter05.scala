@@ -117,7 +117,30 @@ object chapter05 {
         assert(new Person("Ben Cavins").lastName == "Cavins")
     }
 
-    def exercise08 {}
+    def exercise08 {
+        class Car(val manufacturer: String, 
+            val modelName: String, 
+            val modelYear: Int = -1, 
+            val licensePlate: String = "") {}
+
+        val c0 = new Car("Ford", "F-150")
+        assert(c0.manufacturer == "Ford")
+        assert(c0.modelName == "F-150")
+        assert(c0.modelYear == -1)
+        assert(c0.licensePlate == "")
+
+        val c1 = new Car("Toyota", "Camery", 2001)
+        assert(c1.manufacturer == "Toyota")
+        assert(c1.modelName == "Camery")
+        assert(c1.modelYear == 2001)
+        assert(c1.licensePlate == "")
+
+        val c2 = new Car("Oldsmobile", "Alero", 1999, "9PQ-LOL")
+        assert(c2.manufacturer == "Oldsmobile")
+        assert(c2.modelName == "Alero")
+        assert(c2.modelYear == 1999)
+        assert(c2.licensePlate == "9PQ-LOL")
+    }
 
     def exercise09 {}
 
