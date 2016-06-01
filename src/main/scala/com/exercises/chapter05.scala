@@ -1,3 +1,4 @@
+import scala.beans.BeanProperty
 
 object chapter05 {
 
@@ -71,7 +72,31 @@ object chapter05 {
         assert(!t2.before(t1))
     }
 
-    def exercise05 {}
+    def exercise05 {
+        class Student(@BeanProperty var name: String, @BeanProperty var id: Long) {}
+
+        val s = new Student("Ben", 1234)
+        assert(s.getName == "Ben")
+        assert(s.getId == 1234)
+        s.setName("Jesse")
+        s.setId(456789)
+        assert(s.getName == "Jesse")
+        assert(s.getId == 456789)
+
+        /*
+        public class Student implements scala.ScalaObject {
+          public java.lang.String name();
+          public void name_$eq(java.lang.String);
+          public void setName(java.lang.String);
+          public long id();
+          public void id_$eq(long);
+          public void setId(long);
+          public long getId();
+          public java.lang.String getName();
+          public Student(java.lang.String, long);
+        }
+        */
+    }
 
     def exercise06 {}
 
