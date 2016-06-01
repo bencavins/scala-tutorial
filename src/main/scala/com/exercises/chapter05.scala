@@ -98,7 +98,14 @@ object chapter05 {
         */
     }
 
-    def exercise06 {}
+    def exercise06 {
+        class Person(var name: String, var age: Int) {
+            if (age < 0) age = 0
+        }
+
+        assert(new Person("Ben", 25).age == 25)
+        assert(new Person("Jesse", -1).age == 0)
+    }
 
     def exercise07 {}
 
