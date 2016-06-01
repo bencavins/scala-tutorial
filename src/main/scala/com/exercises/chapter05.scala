@@ -142,9 +142,22 @@ object chapter05 {
         assert(c2.licensePlate == "9PQ-LOL")
     }
 
-    def exercise09 {}
+    def exercise09 {
+        // The corresponding Java class for ex08 would be much longer
+    }
 
-    def exercise10 {}
+    def exercise10 {
+        class Employee {
+            private var _name = "John Q. Public"
+            var _salary = 0.0
+
+            def this(name: String, salary: Double) {
+                this()
+                _name = name
+                _salary = salary
+            }
+        }
+    }
 
     def main(args: Array[String]) {
         exercise01
