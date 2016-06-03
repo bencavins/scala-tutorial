@@ -51,7 +51,16 @@ object chapter06 extends App {
         assert(Origin.getY == -5.0)
     }
 
-    def exercise04 {}
+    def exercise04 {
+        class Point(val x: Double, val y: Double) {}
+        object Point {
+            def apply(x: Double, y: Double) = new Point(x, y)
+        }
+
+        val p = Point(1, 5)
+        assert(p.x == 1.0)
+        assert(p.y == 5.0)
+    }
 
     def exercise05 {}
 
