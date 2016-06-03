@@ -36,7 +36,20 @@ object chapter06 extends App {
         assert(milesToKilometers.convert(100) == 160.9344)
     }
 
-    def exercise03 {}
+    def exercise03 {
+        object Origin extends java.awt.Point(1, 5) {}
+
+        assert(Origin.getX == 1.0)
+        assert(Origin.getY == 5.0)
+
+        // This isn't a good idea because the coordinates for java.awt.Point can be changed
+        // with the move() method
+
+        Origin.move(-1, -5)
+
+        assert(Origin.getX == -1.0)
+        assert(Origin.getY == -5.0)
+    }
 
     def exercise04 {}
 
