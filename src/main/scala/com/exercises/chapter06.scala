@@ -62,7 +62,9 @@ object chapter06 extends App {
         assert(p.y == 5.0)
     }
 
-    def exercise05 {}
+    def exercise05 {
+        // See chapter06-05.scala
+    }
 
     def exercise06 {}
 
