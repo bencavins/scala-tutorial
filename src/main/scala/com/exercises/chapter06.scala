@@ -66,7 +66,21 @@ object chapter06 extends App {
         // See chapter06-05.scala
     }
 
-    def exercise06 {}
+    def exercise06 {
+        object Suit extends Enumeration {
+            type Suit = Value
+
+            val Heart   = Value("♥")
+            val Club    = Value("♣")
+            val Spade   = Value("♠")
+            val Diamond = Value("♦")
+        }
+
+        assert(Suit.Heart.toString   == "♥")
+        assert(Suit.Club.toString    == "♣")
+        assert(Suit.Spade.toString   == "♠")
+        assert(Suit.Diamond.toString == "♦")
+    }
 
     def exercise07 {}
 
