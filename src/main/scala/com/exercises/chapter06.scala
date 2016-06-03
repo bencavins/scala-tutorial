@@ -21,7 +21,20 @@ object chapter06 extends App {
         assert(Conversions.milesToKilometers(100) == 160.9344)
     }
 
-    def exercise02 {}
+    def exercise02 {
+        abstract class UnitConversion(val factor: Double) {
+            def convert(value: Double) = { value * factor }
+            def apply(value: Double) = convert(value)
+        }
+
+        object inchesToCentimeters extends UnitConversion(2.54) {}
+        object gallonsToLiters extends UnitConversion(3.785411784) {}
+        object milesToKilometers extends UnitConversion(1.609344) {}
+
+        assert(inchesToCentimeters.convert(1) == 2.45)
+        assert(gallonsToLiters.convert(10) == 37.85411784)
+        assert(milesToKilometers.convert(100) == 160.9344)
+    }
 
     def exercise03 {}
 
