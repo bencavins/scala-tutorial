@@ -31,7 +31,7 @@ object chapter06 extends App {
         object gallonsToLiters extends UnitConversion(3.785411784) {}
         object milesToKilometers extends UnitConversion(1.609344) {}
 
-        assert(inchesToCentimeters.convert(1) == 2.45)
+        assert(inchesToCentimeters.convert(1) == 2.54)
         assert(gallonsToLiters.convert(10) == 37.85411784)
         assert(milesToKilometers.convert(100) == 160.9344)
     }
@@ -102,7 +102,27 @@ object chapter06 extends App {
         assert(!isRed(Suit.Club))
     }
 
-    def exercise08 {}
+    def exercise08 {
+        object Color extends Enumeration {
+            type Color = Value
+
+            val Red = Value(0xff0000, "Red")
+            val Green = Value(0x00ff00, "Green")
+            val Blue = Value(0x0000ff, "Blue")
+            val Yellow = Value(0xffff00, "Yellow")
+            val Cyan = Value(0x00ffff, "Cyan")
+            val Magenta = Value(0xff00ff, "Magenta")
+            val White = Value(0xffffff, "White")
+            val Black = Value(0x000000, "Black")
+        }
+    }
 
     exercise01
+    exercise02
+    exercise03
+    exercise04
+    exercise05
+    exercise06
+    exercise07
+    exercise08
 }
