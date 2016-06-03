@@ -82,7 +82,25 @@ object chapter06 extends App {
         assert(Suit.Diamond.toString == "♦")
     }
 
-    def exercise07 {}
+    def exercise07 {
+        object Suit extends Enumeration {
+            type Suit = Value
+
+            val Heart   = Value("♥")
+            val Club    = Value("♣")
+            val Spade   = Value("♠")
+            val Diamond = Value("♦")
+        }
+
+        import Suit._
+
+        def isRed(suit: Suit) = {suit == Suit.Heart || suit == Suit.Diamond}
+
+        assert(isRed(Suit.Heart))
+        assert(isRed(Suit.Diamond))
+        assert(!isRed(Suit.Spade))
+        assert(!isRed(Suit.Club))
+    }
 
     def exercise08 {}
 
