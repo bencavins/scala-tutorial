@@ -104,7 +104,15 @@ object chapter08 extends App {
         assert(b.price == 6.00)
     }
     
-    object exercise05 {}
+    object exercise05 {
+        class Point(val x: Double, val y: Double) {}
+        class LabeledPoint(val label: String, x: Double, y: Double) extends Point(x, y) {}
+
+        val p = new LabeledPoint("label", 1, 5.5)
+        assert(p.label == "label")
+        assert(p.x == 1.0)
+        assert(p.y == 5.5)
+    }
     
     object exercise06 {}
     
