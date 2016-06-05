@@ -114,7 +114,27 @@ object chapter08 extends App {
         assert(p.y == 5.5)
     }
     
-    object exercise06 {}
+    object exercise06 {
+        abstract class Shape {
+            def centerPoint: (Double, Double)
+        }
+
+        // Due to my computer graphics background, x and y refer to the top left point
+        // of the rectangle
+        class Rectangle(val x: Double, val y: Double, val width: Double, val height: Double) extends Shape {
+            override def centerPoint = { (x + (width / 2), y - (height / 2)) }
+        }
+
+        class Circle(val x: Double, val y: Double, val r: Double) extends Shape {
+            override def centerPoint = { (x, y) }
+        }
+
+        val r = new Rectangle(2.5, 6.0, 5.0, 10.0)
+        val c = new Circle(7.5, 8.0, 3.5)
+
+        assert(r.centerPoint == (5.0, 1.0))
+        assert(c.centerPoint == (7.5, 8.0))
+    }
     
     object exercise07 {}
     
