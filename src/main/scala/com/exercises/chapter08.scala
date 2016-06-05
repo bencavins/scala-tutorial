@@ -73,7 +73,36 @@ object chapter08 extends App {
     
     object exercise03 {}
 
-    object exercise04 {}
+    object exercise04 {
+        abstract class Item {
+            def price: Double
+            def description: String
+        }
+
+        class SimpleItem(itemPrice: Double, itemDescription: String) extends Item {
+            override val price = itemPrice
+            override val description = itemDescription
+        }
+
+        class Bundle extends Item {
+            import scala.collection.mutable.ArrayBuffer
+
+            val items = new ArrayBuffer[Item]
+
+            override def price = { items.foldLeft(0.0)((total, item) => total + item.price) }
+            override def description = { items.mkString(", ") }
+
+            def addItem(item: Item) { items.append(item) }
+        }
+
+        val b = new Bundle
+        val i0 = new SimpleItem(1.00, "item1")
+        val i1 = new SimpleItem(5.00, "item2")
+        b.addItem(i0)
+        b.addItem(i1)
+
+        assert(b.price == 6.00)
+    }
     
     object exercise05 {}
     
