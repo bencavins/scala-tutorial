@@ -136,7 +136,27 @@ object chapter08 extends App {
         assert(c.centerPoint == (7.5, 8.0))
     }
     
-    object exercise07 {}
+    object exercise07 {
+        class Square(x: Int, y: Int, width: Int) extends java.awt.Rectangle(x, y, width, width) {
+            def this(width: Int) { this(0, 0, width) }
+            def this() { this(0) }
+        }
+
+        val s0 = new Square()
+        assert(s0.x == 0)
+        assert(s0.y == 0)
+        assert(s0.width == 0)
+
+        val s1 = new Square(10)
+        assert(s1.x == 0)
+        assert(s1.y == 0)
+        assert(s1.width == 10)
+        
+        val s2 = new Square(2, 3, 15)
+        assert(s2.x == 2)
+        assert(s2.y == 3)
+        assert(s2.width == 15)
+    }
     
     object exercise08 {}
     
