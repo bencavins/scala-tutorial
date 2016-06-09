@@ -21,7 +21,9 @@ object chapter09 {
         out.close
     }
     
-    object exercise03 {}
+    object exercise03 {
+        for (word <- Source.fromFile("./src/main/resources/big-words.txt").mkString.split("\\s+") if word.length >= 12) println(word)
+    }
     
     object exercise04 {}
     
