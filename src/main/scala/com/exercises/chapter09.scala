@@ -1,6 +1,8 @@
 import scala.io.Source
 import scala.collection.mutable.ArrayBuffer
 
+import java.io.PrintWriter
+
 object chapter09 {
         
     object exercise01 {
@@ -10,7 +12,14 @@ object chapter09 {
         for (line <- arrayBuffer) println(line)
     }
 
-    object exercise02 {}
+    object exercise02 {
+        val n = 4
+        val contents = Source.fromFile("./src/main/resources/tabs.txt").mkString
+        val newContents = contents.replace("\t", (" " * n))
+        val out = new PrintWriter("./src/main/resources/tabs.txt")
+        for (c <- newContents) out.print(c)
+        out.close
+    }
     
     object exercise03 {}
     
