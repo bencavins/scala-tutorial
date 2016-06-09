@@ -34,7 +34,11 @@ object chapter09 {
         val min = numbers.reduceLeft((x, y) => if (x < y) x else y)
     }
     
-    object exercise05 {}
+    object exercise05 {
+        val out = new PrintWriter("/tmp/pow-o-two.txt")
+        for (n <- 1 to 20) out.println(n + "\t" + scala.math.pow(2, n))
+        out.close
+    }
     
     object exercise06 {}
     
