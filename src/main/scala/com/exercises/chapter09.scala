@@ -40,7 +40,14 @@ object chapter09 {
         out.close
     }
     
-    object exercise06 {}
+    object exercise06 {
+        val source = Source.fromFile("./src/main/resources/HelloWorld.java").mkString
+        val pattern = "\".*\"".r
+        val occurrences = pattern.findAllIn(source).toArray
+        val out = new PrintWriter("/tmp/quoted-strings.txt")
+        for (occurrence <- occurrences) out.println(occurrence)
+        out.close
+    }
     
     object exercise07 {}
     
