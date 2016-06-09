@@ -25,7 +25,14 @@ object chapter09 {
         for (word <- Source.fromFile("./src/main/resources/big-words.txt").mkString.split("\\s+") if word.length >= 12) println(word)
     }
     
-    object exercise04 {}
+    object exercise04 {
+        val lines = Source.fromFile("./src/main/resources/numbers.txt").getLines.toArray
+        val numbers = lines.map(line => line.toDouble)
+        val sum = numbers.sum
+        val average = numbers.sum / numbers.length // Let's hope there aren't zero numbers
+        val max = numbers.reduceLeft((x, y) => if (x > y) x else y)
+        val min = numbers.reduceLeft((x, y) => if (x < y) x else y)
+    }
     
     object exercise05 {}
     
