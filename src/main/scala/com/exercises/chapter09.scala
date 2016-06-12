@@ -51,7 +51,15 @@ object chapter09 {
     
     object exercise07 {}
     
-    object exercise08 {}
+    object exercise08 {
+        val source = """
+        <html!>
+        <img src="kitty.jpg"
+        """
+        val pattern = ".*<img.*\"(.*)\".*".r
+        val pattern(src) = source
+        println(src) 
+    }
     
     object exercise09 {}
     
